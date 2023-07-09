@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block head %}
+<title>ShowSupervisor | Labour Management System</title>
+{% endblock %} {% block body %}
+
+<!-- Welcome Message -->
+<p class="insert-div">Supervisor Database</p>
+<a href="supervisor" class="backer"> Go back </a>
+{% if status %}
+<div class="body-container">
+  <div class="change-container">
+    <a href="editSupervisor" class=""> Edit </a>
+    <a href="deleteSupervisor" class=""> Delete </a>
+    <a href="perform" class=""> Query </a>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          {% for h in headings %}
+          <th>{{h}}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in data %}
+        <tr>
+          {% for d in record %}
+          <td>{{d}}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endif %} {% endblock %}

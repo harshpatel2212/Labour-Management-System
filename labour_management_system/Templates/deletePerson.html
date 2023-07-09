@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block head %}
+<title>DeletePerson | Labour Management System</title>
+{% endblock %} {% block body %}
+
+<!-- Welcome Message -->
+<div>
+  <p class="welcome-div">
+    <img src="https://see.fontimg.com/api/renderfont4/lgedV/eyJyIjoiZnMiLCJoIjo4MSwidyI6MTI1MCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/UGVyc29uIFBhZ2U/inborn-personal-use-regular.png" alt="person">
+  </p>
+  <a href="showPerson" class="backer"> Show Person Database</a>
+  <div class="body-container">
+    <p class="insert-div">Delete Record in Database</p>
+    <div class="table-container" style="padding: 7vh">
+      <form action="" class="form" method="POST">
+        {% csrf_token %}
+        <table class="">
+          <tr>
+            <td>Person ID:</td>
+            <td>
+              <input
+                type="number"
+                id="person_id"
+                name="person_id"
+                placeholder="Enter Person ID"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><input type="submit" id="submit" name="submit" class="" /></td>
+            <td><input type="reset" id="reset" name="reset" class="" /></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    {% if status %} {% if success %}
+    <p class="insert-div">{{msg}}</p>
+    {% else %}
+    <p class="insert-div" style="background-color: #e50c8e">{{msg}}</p>
+    {% endif%} {% endif%}
+  </div>
+</div>
+
+{% endblock %}

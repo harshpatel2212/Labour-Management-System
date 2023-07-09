@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
+    {% block head %} {% endblock %}
+  </head>
+
+  <body>
+    <nav class="menu-container">
+      <!-- burger menu -->
+      <input type="checkbox" aria-label="Toggle menu" />
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <!-- menu items -->
+      <div class="menu">
+        <ul>
+          <li>
+            <a href="home">Labour Management System</a>
+          </li>
+          <li>
+            <a href="district">District</a>
+          </li>
+          <li>
+            <a href="person">Person</a>
+          </li>
+          <li>
+            <a href="supervisor">Supervisor</a>
+          </li>
+          <li>
+            <a href="perform">Query</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {% block body %} {% endblock %}
+    <!-- Footer -->
+    <div class="footer-div">
+      <ul>
+        <li>Copyright@2022</li>
+        <li>
+          Developer: Team 19 - Harsh Patel(202001173) and Kunal
+          Hotwani(202001468)
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

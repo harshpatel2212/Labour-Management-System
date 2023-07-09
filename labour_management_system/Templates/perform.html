@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block head %}
+<title>ShowDistrict | Labour Management System</title>
+{% endblock %} {% block body %}
+
+<!-- Welcome Message -->
+<a href="district" class="backer"> Go back </a>
+<div class="body-container">
+  <div class="img-container">
+    <img src="/static/schema.png" alt="schema img" />
+  </div>
+  <div class="table-container" style="padding: 4vh">
+    <form action="" class="form" method="POST">
+      {% csrf_token %}
+      <table class="">
+        <tr>
+          <td>SQL Query:</td>
+          <td>
+            <textarea
+              id="query"
+              name="query"
+              rows="4"
+              cols="50"
+              placeholder="..."
+            ></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td><input type="submit" id="submit" name="submit" class="" /></td>
+          <td><input type="reset" id="reset" name="reset" class="" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  {% if status %} {% if success %}
+  <p class="insert-div">{{msg}}</p>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          {% for h in headings %}
+          <th>{{h}}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in data %}
+        <tr>
+          {% for d in record %}
+          <td>{{d}}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="insert-div" style="background-color: #e50c8e">{{msg}}</p>
+    {% endif%} {% endif%}
+  </div>
+</div>
+
+{% endblock %}
